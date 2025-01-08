@@ -1,0 +1,401 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4, 9, 5, 0.7), rgba(4, 9, 5, 0.7)), url("https://images.unsplash.com/photo-1495107334309-fcf20504a5ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+nav {
+    display: flex;
+    padding: 2% 6%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav i {
+    visibility: hidden;
+}
+
+nav img {
+    width: 90px;
+    background: transparent;
+
+}
+
+.nav-items {
+    flex: 1;
+    text-align: right;
+}
+
+.nav-items ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+
+.nav-items ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+.nav-items ul li::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: whitesmoke;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+
+.nav-items ul li:hover::after {
+    width: 100%;
+}
+
+.text {
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.text h2 {
+    font-size: 3em;
+}
+
+.text p {
+    font-size: 1.2em;
+    margin: 5%;
+}
+
+.btn {
+    text-decoration: none;
+    display: inline-block;
+    color: #fff;
+    border: 1px solid #fff;
+    font-size: 1.2em;
+    padding: 1.5vw 2vw;
+    border-radius: 10px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+    background-color: #ff7f50;
+
+    &:hover {
+        transition: 1s;
+        background-color: #ff4500;
+    }
+}
+
+.nav .fa {
+    display: none;
+}
+
+@media(max-width:600px) {
+    .text h2 {
+        font-size: 2em;
+    }
+
+    .nav-items ul li {
+        display: block;
+    }
+
+    .nav-items {
+        background-color: #333;
+        position: fixed;
+        height: 100vh;
+        width: 200px;
+        top: 0;
+        right: 0;
+        transform: translateX(100%);
+        text-align: left;
+        z-index: 2;
+        transition: transform 1s ease;
+    }
+
+    .nav-items.active {
+        transform: translateX(0);
+    }
+
+    nav a img {
+        height: 100px;
+    }
+
+    nav .fa {
+        display: block;
+        color: #fff;
+        margin: 10px;
+        font-size: 22px;
+        cursor: pointer;
+    }
+
+    .nav-items ul {
+        padding: 30px;
+    }
+}
+
+.container {
+    padding: 2vw 2vw;
+    text-align: center;
+}
+
+.container h2 {
+    margin: 2%;
+}
+
+.container p {
+    margin-bottom: 1%;
+}
+
+
+.header .about {
+    font-size: 1.4rem;
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.header .about h1 {
+    color: #fff;
+    font-weight: 600;
+
+}
+
+.header .about div {
+    width: 50%;
+    text-align: center;
+}
+
+.header .about h1 {
+    margin-bottom: 2%;
+}
+
+@media (max-width:600px) {
+    nav i {
+        visibility: visible;
+    }
+
+    .header .about h1 {
+        margin-bottom: 10%;
+    }
+}
+
+.about-us {
+    margin: 5%;
+    padding: 2vw 10vw;
+    background-color: #f4f4f4;
+
+}
+
+.about-us h1,
+.about-us h2 {
+    color: #ff7f50;
+    margin-bottom: 2%;
+}
+
+.about-us .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-us .row .col-sm-6 img {
+    padding: 2vw 6vw;
+    width: 100%;
+
+}
+
+@media (max-width:600px) {
+    .about-us .row {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.contect {
+    margin-bottom: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.contect h2 {
+    color: #ff7f50;
+}
+
+.contect-us {
+    width: 800px;
+    text-align: center;
+}
+
+.qa-container {
+    max-width: 1000px;
+    margin: auto;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.qa-item {
+    border-bottom: 1px solid #ccc;
+    padding: 15px;
+}
+
+.qa-question {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007BFF;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.qa-question:hover {
+    color: #0056b3;
+}
+
+.qa-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    background-color: #f9f9f9;
+    padding: 0 10px;
+    font-size: 16px;
+}
+
+.qa-answer p {
+    margin: 15px 0;
+}
+
+.qa-item.active .qa-answer {
+    max-height: 150px;
+}
+
+.qa-item.active .qa-question::before {
+    content: '-';
+    position: absolute;
+    left: -25px;
+    font-size: 18px;
+}
+
+.qa-question::before {
+    content: '+';
+    position: absolute;
+    left: -25px;
+    font-size: 18px;
+    transition: transform 0.3s;
+}
+
+/* footer style */
+.footer {
+    background-color: #222;
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer .info {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+}
+
+.footer .info div {
+    margin: 20px;
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer h4 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #f4f4f4;
+}
+
+.footer ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer ul li {
+    margin-bottom: 10px;
+}
+
+.footer ul li a {
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer ul li a:hover {
+    color: #ff7f50;
+}
+
+.footer .newsletter form {
+    display: flex;
+    justify-content: center;
+}
+
+.footer .newsletter input {
+    padding: 10px;
+    width: 60%;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+
+.footer .newsletter button {
+    padding: 10px 20px;
+    background-color: #ff7f50;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    transition: background-color 0.3s;
+}
+
+.footer .newsletter button:hover {
+    background-color: #ff4500;
+}
+
+.footer p {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+@media (max-width: 600px) {
+    .footer .info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer .info div {
+        text-align: center;
+    }
+}

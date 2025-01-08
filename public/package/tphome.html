@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tour Packages</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #27a46a;
+      color: white;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3em;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 20px auto;
+    }
+
+    /* Category Filter Section */
+    .categories {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin-bottom: 50px;
+    }
+
+    .category-box {
+      text-align: center;
+      width: 150px;
+      height: 150px;
+      cursor: pointer;
+      padding: 5px;
+      position: relative;
+      transition: all 0.3s ease;
+      margin-bottom: 20px;
+    }
+
+    .category-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid #f8f9fa;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .category-box:hover img {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Overlay for Category Name */
+    .category-box .category-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(8, 8, 8, 0.6);
+      color: #fff;
+      font-size: 1.5em;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .category-box:hover .category-overlay {
+      opacity: 1;
+    }
+
+    /* Packages Section */
+    .packages {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .package-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .package-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .package-image img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .package-info {
+      padding: 15px;
+    }
+
+    .package-info h2 {
+      font-size: 1.4em;
+      color: #1f3b6c;
+      margin-bottom: 10px;
+    }
+
+    .package-info p {
+      color: #666;
+      line-height: 1.5;
+    }
+
+    /* Highlight and color changes */
+    .package-info p strong {
+      color: #007bff;
+    }
+
+    .price {
+      font-size: 1.3em;
+      color: #27a46a;
+      font-weight: bold;
+      margin-top: 10px;
+      border: 1px solid #27a46a;
+      padding: 5px;
+      border-radius: 5px;
+      background-color: #eaffea;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      background-color: #27a46a;
+      color: white;
+      font-size: 1em;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .categories {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .category-box {
+        width: 50%;
+      }
+
+      .packages {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+
+</head>
+
+<body>
+  <header>
+    <h1>Explore Our Best Tour Packages</h1>
+  </header>
+
+  <section class="container">
+    <div class="categories">
+      <div class="category-box" onclick="fetchPackages('adventure')">
+        <img
+          src="https://img.freepik.com/free-photo/traveling-with-off-road-car_23-2151473108.jpg?t=st=1729064183~exp=1729067783~hmac=ddfb569ea4773bad1e373a00d1f8e88c36850b6cadeb11e6f2e526ffb037f4a3&w=1480"
+          alt="Adventure">
+        <div class="category-overlay">Adventure</div>
+      </div>
+      <div class="category-box" onclick="fetchPackages('trekking')">
+        <img
+          src="https://img.freepik.com/premium-photo/ai-picture_1137054-1527.jpg?ga=GA1.1.2070754601.1722793245&semt=ais_hybrid"
+          alt="Trekking">
+        <div class="category-overlay">Trekking</div>
+      </div>
+      <div class="category-box" onclick="fetchPackages('heritage')">
+        <img
+          src="https://img.freepik.com/free-photo/architecture-ancient-monument-world-heritage-day-celebration_23-2151297197.jpg?ga=GA1.1.2070754601.1722793245&semt=ais_hybrid"
+          alt="Heritage">
+        <div class="category-overlay">Heritage</div>
+      </div>
+      <div class="category-box" onclick="fetchPackages('honeymoon')">
+        <img
+          src="https://img.freepik.com/premium-photo/honeymoon-event-photography-images-with-aspect-ratio-version_1277187-1004.jpg?ga=GA1.1.2070754601.1722793245&semt=ais_hybrid"
+          alt="Honeymoon">
+        <div class="category-overlay">Honeymoon</div>
+      </div>
+      <div class="category-box" onclick="fetchPackages('beaches')">
+        <img
+          src="https://img.freepik.com/free-photo/illustration-tourist-attraction-city_23-2151852309.jpg?ga=GA1.1.2070754601.1722793245&semt=ais_hybrid"
+          alt="Beaches">
+        <div class="category-overlay">Beaches</div>
+      </div>
+      <div class="category-box" onclick="fetchPackages('temples')">
+        <img
+          src="https://img.freepik.com/free-photo/architecture-ancient-monument-world-heritage-day-celebration_23-2151297193.jpg?ga=GA1.1.2070754601.1722793245&semt=ais_hybrid"
+          alt="Temples">
+        <div class="category-overlay">Temples</div>
+      </div>
+      <div class="category-box" onclick="fetchPackages('wildlife')">
+        <img
+          src="https://img.freepik.com/free-photo/close-up-wild-animal-nature_23-2151853141.jpg?ga=GA1.1.2070754601.1722793245&semt=ais_hybrid"
+          alt="Wildlife">
+        <div class="category-overlay">Wildlife</div>
+      </div>
+      <div class="category-box" onclick="fetchPackages('cultural')">
+        <img
+          src="https://img.freepik.com/free-photo/lohri-celebration-india_23-2151150938.jpg?ga=GA1.1.2070754601.1722793245&semt=ais_hybrid"
+          alt="Cultural">
+        <div class="category-overlay">Cultural</div>
+      </div>
+    </div>
+  </section>
+  <section id="packages-container" class="container packages">
+    <!-- Packages will be dynamically inserted here -->
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Trip Ride | All Rights Reserved</p>
+  </footer>
+
+  <script>
+    // Function to fetch packages from the JSON file based on category
+    async function fetchPackages(category) {
+      try {
+        const response = await fetch('/toppkg'); // Ensure this path is correct
+        const packages = await response.json();
+
+        // Filter packages by category
+        const filteredPackages = packages.filter(pkg => pkg.category.toLowerCase() === category.toLowerCase());
+        displayPackages(filteredPackages);
+      } catch (error) {
+        console.error('Error fetching packages:', error);
+      }
+    }
+
+    // Function to display filtered packages on the page
+    function displayPackages(packages) {
+      const container = document.getElementById('packages-container');
+      container.innerHTML = ''; // Clear the container
+
+      if (packages.length === 0) {
+        container.innerHTML = '<p>No packages found for this category.</p>';
+        return;
+      }
+
+      packages.forEach(pkg => {
+        const packageDiv = document.createElement('div');
+        packageDiv.classList.add('package-card');
+
+        packageDiv.innerHTML = `
+          <div class="package-image">
+            <img src="${pkg.photos[0]}" alt="${pkg.destination}">
+          </div>
+          <div class="package-info">
+            <h2>${pkg.destination}</h2>
+            <p><strong>Duration:</strong> ${pkg.duration}</p>
+            <p><strong>Price:</strong> ${pkg.price}</p>
+            <p><strong>Description:</strong> ${pkg.description}</p>
+            <p><strong>Inclusions:</strong> ${pkg.inclusions.join(', ')}</p>
+            <p><strong>Exclusions:</strong> ${pkg.exclusions.join(', ')}</p>
+            <p><strong>Availability:</strong> ${pkg.availability[0].startDate} to ${pkg.availability[0].endDate}</p>
+          </div>
+        `;
+        container.appendChild(packageDiv);
+      });
+    }
+
+    // Show the default category (Adventure) on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      const defaultCategory = 'adventure';
+      fetchPackages(defaultCategory);
+
+      // Scroll to the default section without the user needing to scroll
+      const defaultSection = document.querySelector(`.category-box[data-type="${defaultCategory}"]`);
+      if (defaultSection) {
+        defaultSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+
+    // Handle category clicks to load packages
+    const categoryBoxes = document.querySelectorAll('.category-box');
+    categoryBoxes.forEach(box => {
+      box.addEventListener('click', (event) => {
+        event.preventDefault();
+        const category = event.currentTarget.getAttribute('data-type');
+        fetchPackages(category); // Fetch and display packages for the clicked category
+
+        // Scroll to the relevant section
+        event.currentTarget.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+
+</html>

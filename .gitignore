@@ -1,0 +1,19 @@
+# Node.js files
+node_modules/
+package-lock.json
+
+# Logs
+*.log
+
+# Environment files
+.env
+
+# IDE-specific files
+.vs/
+.vscode/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+public/media/*.mp4

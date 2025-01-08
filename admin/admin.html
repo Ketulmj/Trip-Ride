@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Package Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        h1 {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            margin: 0;
+            text-align: center;
+            font-size: 28px;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 22px;
+            color: #444;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        input,
+        button {
+            width: calc(100% - 20px);
+            margin: 10px auto;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        #admin-package-section {
+            display: none;
+        }
+
+        #packages-list {
+            max-width: 900px;
+            margin: 30px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .package-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .package-item h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .package-item img {
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .package-item p {
+            font-size: 14px;
+            color: #666;
+            margin: 5px 0;
+        }
+
+        .package-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 600px) {
+
+            form,
+            #packages-list {
+                padding: 10px;
+            }
+
+            input,
+            button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Admin - Package Management</h1>
+    <h2>Admin Login</h2>
+    <form id="admin-login-form">
+        <input type="password" id="admin-id" placeholder="Enter Admin ID" required>
+        <button type="submit">Login</button>
+    </form>
+
+    <div id="admin-package-section">
+        <h2>Add Package</h2>
+        <form id="add-package-form">
+            <input type="text" id="add-package-name" placeholder="Package Name" required>
+            <input type="text" id="add-package-description" placeholder="Package Description" required>
+            <input type="text" id="add-package-duration" placeholder="Duration" required>
+            <input type="text" id="add-package-price" placeholder="Price" required>
+            <input type="text" id="add-package-inclusions" placeholder="Inclusions (comma separated)" required>
+            <input type="text" id="add-package-exclusions" placeholder="Exclusions (comma separated)" required>
+            <input type="text" id="add-package-photos" placeholder="Photos (comma separated URLs)" required>
+            <input type="text" id="add-package-availability" placeholder="Availability (start and end dates)" required>
+            <button type="submit">Add Package</button>
+        </form>
+
+        <h2>Update Package</h2>
+        <form id="update-package-form">
+            <input type="number" id="update-package-id" placeholder="Package ID" required>
+            <input type="text" id="update-package-name" placeholder="New Package Name" required>
+            <input type="text" id="update-package-description" placeholder="New Package Description" required>
+            <input type="text" id="update-package-duration" placeholder="New Duration" required>
+            <input type="text" id="update-package-price" placeholder="New Price" required>
+            <input type="text" id="update-package-inclusions" placeholder="New Inclusions (comma separated)" required>
+            <input type="text" id="update-package-exclusions" placeholder="New Exclusions (comma separated)" required>
+            <input type="text" id="update-package-photos" placeholder="New Photos (comma separated URLs)" required>
+            <input type="text" id="update-package-availability" placeholder="New Availability (start and end dates)"
+                required>
+            <button type="submit">Update Package</button>
+        </form>
+
+        <h2>Delete Package</h2>
+        <form id="delete-package-form">
+            <input type="number" id="delete-package-id" placeholder="Package ID" required>
+            <button type="submit">Delete Package</button>
+        </form>
+
+        <h2>Packages List</h2>
+        <div id="packages-list"></div>
+    </div>
+
+    <script>
+        // Admin login form
+        document.getElementById('admin-login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const adminId = document.getElementById('admin-id').value;
+            const response = await fetch('/admin-check', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ adminId })
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+                if (result.valid) {
+                    document.getElementById('admin-package-section').style.display = 'block';
+                    document.getElementById('admin-login-form').style.display = 'none';
+                } else {
+                    alert('Invalid Admin ID!');
+                }
+            } else {
+                alert('Error checking admin ID');
+            }
+        });
+
+        async function fetchPackages() {
+            try {
+                const response = await fetch('/packages');
+                if (!response.ok) throw new Error('Network response was not ok');
+                const packages = await response.json();
+                displayPackages(packages);
+            } catch (error) {
+                console.error('There was a problem with the fetch operation:', error);
+            }
+        }
+
+        function displayPackages(packages) {
+            const packagesList = document.getElementById('packages-list');
+            packagesList.innerHTML = '';
+
+            packages.forEach(pkg => {
+                const pkgItem = document.createElement('div');
+                pkgItem.className = 'package-item';
+                pkgItem.innerHTML = `
+                    <h3>${pkg.destination}</h3>
+                    <p><strong>Duration:</strong> ${pkg.duration}</p>
+                    <p><strong>Price:</strong> ${pkg.price}</p>
+                    <p><strong>Description:</strong> ${pkg.description}</p>
+                    <p><strong>Inclusions:</strong> ${pkg.inclusions.join(', ')}</p>
+                    <p><strong>Exclusions:</strong> ${pkg.exclusions.join(', ')}</p>
+                    <p><strong>Photos:</strong> <img src="${pkg.photos[0]}" alt="${pkg.destination}" style="max-width: 100%; height: auto;"></p>
+                    <p><strong>Availability:</strong> ${pkg.availability.map(a => `${a.startDate} to ${a.endDate}`).join(', ')}</p>
+                    <p><strong>ID:</strong> ${pkg.id}</p>
+                `;
+                packagesList.appendChild(pkgItem);
+            });
+        }
+
+        // Add package form submit handler
+        document.getElementById('add-package-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const newPackage = {
+                destination: document.getElementById('add-package-name').value,
+                description: document.getElementById('add-package-description').value,
+                duration: document.getElementById('add-package-duration').value,
+                price: document.getElementById('add-package-price').value,
+                inclusions: document.getElementById('add-package-inclusions').value.split(','),
+                exclusions: document.getElementById('add-package-exclusions').value.split(','),
+                photos: document.getElementById('add-package-photos').value.split(','),
+                availability: [{ startDate: '2024-11-01', endDate: '2024-12-31' }] // Example hardcoded availability
+            };
+
+            const response = await fetch('/packages', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newPackage)
+            });
+
+            if (response.ok) {
+                fetchPackages();
+                e.target.reset();
+            } else {
+                console.error('Failed to add package');
+            }
+        });
+
+        // Update package form submit handler
+        document.getElementById('update-package-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const id = document.getElementById('update-package-id').value;
+            const updatedPackage = {
+                destination: document.getElementById('update-package-name').value,
+                description: document.getElementById('update-package-description').value,
+                duration: document.getElementById('update-package-duration').value,
+                price: document.getElementById('update-package-price').value,
+                inclusions: document.getElementById('update-package-inclusions').value.split(','),
+                exclusions: document.getElementById('update-package-exclusions').value.split(','),
+                photos: document.getElementById('update-package-photos').value.split(','),
+                availability: [{ startDate: '2024-11-01', endDate: '2024-12-31' }] // Example hardcoded availability
+            };
+
+            const response = await fetch(`/packages/${id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(updatedPackage)
+            });
+
+            if (response.ok) {
+                fetchPackages();
+                e.target.reset();
+            } else {
+                console.error('Failed to update package');
+            }
+        });
+
+        // Delete package form submit handler
+        document.getElementById('delete-package-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const id = document.getElementById('delete-package-id').value;
+
+            const response = await fetch(`/packages/${id}`, {
+                method: 'DELETE'
+            });
+
+            if (response.ok) {
+                fetchPackages();
+                e.target.reset();
+            } else {
+                console.error('Failed to delete package');
+            }
+        });
+
+        // Fetch and display packages on load
+        fetchPackages();
+    </script>
+</body>
+
+</html>

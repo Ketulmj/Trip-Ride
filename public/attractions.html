@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attractions</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+        }
+
+        .search-container input {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .filter-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .filter-button {
+            padding: 10px;
+            border: none;
+            background-color: #ff7f50;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .filter-dropdown {
+            display: none;
+            position: absolute;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            margin-top: 5px;
+            border-radius: 5px;
+        }
+
+        .filter-dropdown button {
+            padding: 10px;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            width: 300px;
+            margin: 15px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+
+            &:hover{
+                transform: scale(1.05);
+            }
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-container {
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        .card-rating {
+            color: #ff9900;
+            font-size: 1.1em;
+            margin-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        .card-distance {
+            font-size: 0.9em;
+            margin-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        .load-more-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #loadMoreBtn {
+            display: none;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #ff7f50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #loadMoreBtn:hover {
+            background-color: #ff4500;
+        }
+
+        .loader {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            z-index: 999;
+        }
+
+        /* Auto-complete container styling */
+        .autocomplete-suggestions {
+            position: absolute;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            top: 50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-height: 200px;
+            overflow-y: auto;
+            width: 385px;
+            z-index: 1000;
+            display: none;
+        }
+
+        .autocomplete-suggestions .suggestion-item {
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #333;
+            transition: background-color 0.3s ease;
+        }
+
+        .autocomplete-suggestions .suggestion-item:hover {
+            background-color: #f0f0f0;
+        }
+
+        .search-container {
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Attractions</h1>
+    <div class="spinner-border loader" role="status" id="loader"></div>
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search for a location..." />
+        <div class="autocomplete-suggestions" id="autocompleteSuggestions"></div>
+        <div class="filter-container">
+            <button class="filter-button" onclick="toggleDropdown()">Filter <i class="fas fa-filter"></i></button>
+            <div class="filter-dropdown" id="filterDropdown">
+                <button onclick="filterResults('rating')">Rating</button>
+                <button onclick="filterResults('reviews')">Reviews</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-container" id="attractionCards">
+        <!-- Cards will be dynamically inserted here -->
+    </div>
+    <div class="load-more-container">
+        <button type="button" class="btn btn-primary" id="loadMoreBtn" onclick="loadMore()">Load More</button>
+    </div>
+
+    <script>
+        let data = [];
+        let currentOffset = 0;
+        let currentQuery = '';
+        const loadMoreButton = document.getElementById('loadMoreBtn');
+        const inputElement = document.getElementById('searchInput');
+        const suggestionsContainer = document.getElementById('autocompleteSuggestions');
+
+        window.onload = () => {
+            currentQuery = 'Dubai'; // Default query
+            currentOffset = 0;
+            fetchPlaces(currentQuery, currentOffset, true);
+        };
+    
+        // Fetch data based on search input
+        document.getElementById('searchInput').addEventListener('keypress', async (e) => {
+            if (e.key === "Enter") {
+                const searchQuery = e.target.value.trim();
+                if (searchQuery === "") {
+                    alert("Please enter the name of a place!");
+                    return;
+                }
+                currentQuery = searchQuery.toLowerCase();
+                currentOffset = 0;
+                await fetchPlaces(currentQuery, currentOffset, true);
+            }
+        });
+    
+        async function fetchPlaces(query, offset, isNewSearch = false) {
+            currentQuery = query;
+            currentOffset = offset;
+            const url = `http://localhost:5000/api/search?query=${currentQuery}&offset=${currentOffset}`;
+            try {
+                loader.style.display = 'block';
+                const response = await fetch(url);
+    
+                if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+                const result = await response.json();
+                const attractions = result.data.filter(place => place.result_type === 'things_to_do' || place.result_type === 'activities' );
+                if (isNewSearch) data = [];
+                data = data.concat(attractions);
+    
+                if (data.length < 8 && attractions.length > 0) {
+                    currentOffset += 30;
+                    await fetchPlaces(currentQuery, currentOffset);
+                } else {
+                    const loadMoreButton = document.getElementById('loadMoreBtn');
+                    loadMoreButton.style.display = 'inline-block';
+                    displayPlaces(data);
+                }
+            } catch (error) {
+                console.error(error);
+                document.getElementById('attractionCards').innerHTML =
+                    '<p>Error fetching data. Please try again later.</p>';
+            } finally {
+                loader.style.display = 'none';
+            }
+        }
+    
+        function displayPlaces(placesToDisplay) {
+            const placeCardsContainer = document.getElementById('attractionCards');
+            placeCardsContainer.innerHTML = ''; // Clear previous cards
+    
+            if (!placesToDisplay || placesToDisplay.length === 0) {
+                placeCardsContainer.innerHTML = '<p>No attractions to display.</p>';
+                loadMoreButton.style.display = 'block';
+                return;
+            }
+            placesToDisplay.forEach(place => {
+                if (place.result_object.photo) {
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    card.innerHTML = `
+                        <img src="${place.result_object.photo.images.large.url}" alt="${place.result_object.name}">
+                        <div class="card-body">
+                            <div class="card-title">${place.result_object.name}</div>
+                            <div class="card-rating">Rating: ${place.result_object.rating}</div>
+                            <div class="card-reviews">Reviews: ${place.result_object.num_reviews}</div>
+                        </div>
+                    `;
+                    card.addEventListener("click", function () {
+                        const title = this.querySelector('.card-title').textContent;
+                        open_map(title);
+                    });
+                    placeCardsContainer.appendChild(card);
+                }
+            });
+            loadMoreButton.style.display = 'block';
+        }
+
+        function open_map(query) {
+            const map_url = `https://www.google.com/maps?q=${encodeURIComponent(query)}`;
+            window.open(map_url, '_blank');
+        }
+    
+        async function loadMore() {
+            currentOffset += 30;
+            await fetchPlaces(currentQuery, currentOffset);
+        }
+    
+        function toggleDropdown() {
+            const dropdown = document.getElementById('filterDropdown');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        }
+    
+        function filterResults(criteria) {
+            let sortedPlaces = [...data];
+            if (criteria === 'rating') {
+                sortedPlaces.sort((a, b) => b.result_object.rating - a.result_object.rating);
+            } else if (criteria === 'reviews') {
+                sortedPlaces.sort((a, b) => b.result_object.num_reviews - a.result_object.num_reviews);
+            }
+            displayPlaces(sortedPlaces);
+            toggleDropdown();
+        }
+
+        // Fetch and display suggestions when typing
+        inputElement.addEventListener('input', async (e) => {
+            const query = e.target.value.trim();
+            if (query.length < 3) {
+                suggestionsContainer.style.display = 'none';
+                return;
+            }
+            try {
+                const response = await fetch(`/api/autocomplete?query=${query}`);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch suggestions');
+                }
+                const suggestions = await response.json();
+                displaySuggestions(suggestions);
+            } catch (error) {
+                console.error('Error fetching autocomplete suggestions:', error);
+                suggestionsContainer.innerHTML = '<p>Error fetching suggestions</p>';
+            }
+        });
+
+        // Display suggestions dynamically
+        function displaySuggestions(suggestions) {
+            suggestionsContainer.innerHTML = '';
+            if (suggestions.length === 0) {
+                suggestionsContainer.style.display = 'none';
+                return;
+            }
+            suggestions.forEach((suggestion) => {
+                const item = document.createElement('div');
+                item.className = 'suggestion-item';
+                item.textContent = suggestion.result_object.name;
+                item.addEventListener('click', () => {
+                    const selectedValue = suggestion.result_object.name;
+                    inputElement.value = selectedValue;
+                    suggestionsContainer.style.display = 'none';
+                    fetchPlaces(selectedValue, 0, true);
+                });
+                suggestionsContainer.appendChild(item);
+            });
+            suggestionsContainer.style.display = 'block';
+        }
+
+        // Hide suggestions on focus out
+        inputElement.addEventListener('blur', () => {
+            setTimeout(() => {
+                suggestionsContainer.style.display = 'none';
+            }, 200);
+        });
+    </script>
+</body>
+</html>

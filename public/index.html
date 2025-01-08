@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Source Sans Pro' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/index.css" type="text/css">
+    <link rel="icon" href="/media/logo-remove-bg.png" type="image/icon type">
+    <title>Trip Ride</title>
+</head>
+
+<body>
+    <div class="header">
+        <nav>
+            <img src="media/logo.jpg"
+                    alt="Logo" style="border-radius: 50%;">
+            <div class="nav-items">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="/pkg-home">PACKAGES</a></li>
+                    <li><a href="/blog">BLOG</a></li>
+                    <li><a href="/about">ABOUT US</a></li>
+                    <li><a href="/login">SIGN IN</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+
+        <section class="hero-section">
+            <div class="content">
+                <div class="text-content">
+                    <h1>It's a Big World Out There, Go Explore</h1>
+                    <button class="book-btn" onclick="window.location.href = '/tphome'">Explore The World 🌍</button>
+                </div>
+                <div class="image-content">
+                    <img src="https://media.istockphoto.com/id/614309448/photo/travel-explore-family-future-concept.webp?a=1&b=1&s=612x612&w=0&k=20&c=0tSMl48BJBd9_mIVjKtF6DAIKRT2PU6t3yi-XIQeOWA="
+                        alt="Family Exploring World">
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- services -->
+    <section class="services"></section>
+    <div class="container">
+        <h1>Our Services</h1>
+        <div class="service-grid">
+            <div class="service" id="hotel">
+                <img src="https://plus.unsplash.com/premium_photo-1661929519129-7a76946c1d38?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGhvdGVsfGVufDB8fDB8fHww"
+                    alt="hotel" height="200px" width="300px" style="border-radius: 5%;">
+                <h3>Luxury Hotels</h3>
+                <p>We offer luxury hotels with world-class amenities and exceptional comfort. Enjoy a premium experience
+                    designed for relaxation and unforgettable stays.</p>
+            </div>
+            <div class="service" id="restaurant">
+                <img src="https://plus.unsplash.com/premium_photo-1661880019417-20142c2a133b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzN8fGx1eHVyeSUyMHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D"
+                    alt="restaurant" height="200px" width="300px" style="border-radius: 5%;">
+                <h3>Top Rated Restaurants</h3>
+                <p>We offer exquisite high-grade dining experiences, blending elegant ambiance with world-class cuisine.
+                    Indulge in the finest flavors, crafted to perfection for discerning tastes.</p>
+            </div>
+            <div class="service" id="attraction">
+                <img src="https://images.unsplash.com/photo-1526786220381-1d21eedf92bf?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGx1eHVyeSUyMHBhbGNlfGVufDB8fDB8fHww"
+                    alt="palace" height="200px" width="300px" style="border-radius: 5%;">
+                <h3>Places to Explore</h3>
+                <p>We recommend must-visit attractions, showcasing beautiful and culturally rich locations around the
+                    world. Our suggestions ensure a memorable experience, whether you seek adventure or tranquility.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ------------city section ------------------>
+    <section class="live-location">
+        <div class="liveloc-container">
+            <div class="content">
+                <h2>Tell us your location for better recommendations</h2>
+                <button class="location-btn" onclick="redirectToLocationPage()">Choose Your Origin City</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="city-section">
+        <div class="city-container">
+            <h1>Popular Cities</h1>
+            <section class="popular-cities">
+                <div class="city-list">
+                    <div class="city" id="Phuket">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGEiKXDOU3lNaUDvdNFyxvXxo8ybl2JIryIA&s"
+                            alt="Phuket">
+                        <span>Phuket</span>
+                        <p>Thailand</p>
+                    </div>
+                    <div class="city" id="Dubai">
+                        <img src="https://images.pexels.com/photos/162031/dubai-tower-arab-khalifa-162031.jpeg"
+                            alt="Dubai">
+                        <span>Dubai</span>
+                        <p>UAE</p>
+                    </div>
+                    <div class="city" id="Goa">
+                        <img src="https://yu-hotel.com/new/wp-content/uploads/2023/03/best-luxury-hotels-in-north-goa-YU-Hotel.jpg"
+                            alt="Goa">
+                        <span>Goa</span>
+                        <p>India</p>
+                    </div>
+                    <div class="city" id="Sydney">
+                        <img src="https://ychef.files.bbci.co.uk/1280x720/p0gp95cq.jpg" alt="Sydney">
+                        <span>Sydney</span>
+                        <p>Austria</p>
+                    </div>
+                    <div class="city" id="Paris">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeGJBXbcG8-eJro-2WgVU1S7v6l4X_8w_J-Q&s"
+                            alt="Paris">
+                        <span>Paris</span>
+                        <p>France</p>
+                    </div>
+                    <div class="city" id="Paris">
+                        <img src="https://www.turbopass.com/6661-product_large/colosseum-in-full-view-in-rome.jpg"
+                            alt="Rome">
+                        <span>Rome</span>
+                        <p>Italy</p>
+                    </div>
+                </div>
+            </section>
+            <section class="all-cities">
+                <h2>All Cities</h2>
+                <div class="city-list">
+                    <div class="city-name" id="Mumbai"> Mumbai,India</div>
+                    <div class="city-name" id="Bangkok"> Bangkok,Thailand</div>
+                    <div class="city-name" id="Delhi"> Delhi,India</div>
+                    <div class="city-name" id="London"> London,UK</div>
+                    <div class="city-name" id="New York"> New York,US</div>
+                    <div class="city-name" id="Monaco"> Monaco,Europe</div>
+                    <div class="city-name" id="Udaipur">Udaipur,India</div>
+                    <div class="city-name" id="Hongkong">Hongkong,China</div>
+                    <div class="city-name" id="Jaipur">Jaipur,India</div>
+                    <div class="city-name" id="Tokyo">Tokyo,Japan</div>
+                    <div class="city-name" id="Miami">Miami,Florida</div>
+                    <div class="city-name" id="Los Angeles">Los Angeles,US</div>
+                    <div class="city-name" id="Barcelona">Barcelona,Spain</div>
+                    <div class="city-name" id="Switzerland">Switzerland,Europe</div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <section class="reviews">
+        <div class="container">
+            <h2>What Our Customers Say</h2>
+            <div class="review-grid">
+                <div class="review">
+                    <p>"The adventure trip was beyond thrilling! Every moment was packed with excitement."</p>
+                    <h3>John Doe</h3>
+                </div>
+                <div class="review">
+                    <p>"Staying in luxury resorts with Explore The World was a dream come true."</p>
+                    <h3>Jane Smith</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ---------- gallery ------------ -->
+    <section class="gallery">
+        <div class="container">
+            <div class="gallery-grid">
+                <video controls autoplay loop muted style="width: 80vw; height: 80vh; object-fit: cover;">
+                    <source src="https://videos.pexels.com/video-files/4133023/4133023-sd_640_360_30fps.mp4" type="video/mp4" controls>
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+    
+    
+    <!-- ---------------- why choose us? -------------- -->
+    <div class="why-choose-us">
+        <h2>Why Choose Us ?</h2>
+        <div class="features">
+            <div class="feature-box">
+                <i class="ri-thumb-up-line"></i>
+                <h3>10+ Year Experience</h3>
+                <p>Boasting over two decades in the tourism and hospitality industry, Tour My India has amassed
+                    invaluable experience that sets us apart.</p>
+            </div>
+            <div class="feature-box">
+                <i class="ri-thumb-up-line"></i>
+                <h3>A Team of Experts</h3>
+                <p>Our experienced team at Tour My India is more than just proficient; they are destination experts for
+                    every location within the mesmerizing landscape of India.</p>
+            </div>
+            <div class="feature-box">
+                <i class="ri-thumb-up-line"></i>
+                <h3>Verified Hotels</h3>
+                <p>We offer a meticulously selected and verified list of high-grade hotels. Our partners consistently
+                    deliver top-notch service.</p>
+            </div>
+            <div class="feature-box">
+                <i class="ri-thumb-up-line"></i>
+                <h3>Value for Money Tours</h3>
+                <p>With Tour My India, your vacation is not just about sightseeing; it's about creating memories that
+                    last a lifetime with hassle-free packages.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ----------- footer -------------- -->
+    <section class="footer">
+        <div class="info">
+            <div class="aboutus">
+                <h4>About Us</h4>
+                <ul>
+                    <li><a href="mailto:tripride@gmail.com">tripride@gmail.com</a></li>
+                    <li><a href="tel:+912345123422">+91 2345123422</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/blog">Reviews</a></li>
+                </ul>
+            </div>
+
+            <div class="socials">
+                <h4>Follow Us</h4>
+                <ul>
+                    <li><a href="https://www.instagram.com/"><i class="ri-instagram-line"></i> Instagram</a></li>
+                    <li><a href="https://www.facebook.com/"><i class="ri-facebook-circle-fill"></i> Facebook</a></li>
+                    <li><a href="https://www.whatsapp.com/"><i class="ri-whatsapp-line"></i> WhatsApp</a></li>
+                    <li><a href="https://www.x.com/"><i class="ri-twitter-x-line"></i> Twitter</a></li>
+                </ul>
+            </div>
+
+            <div class="newsletter">
+                <h4>Subscribe Us for Updates</h4>
+                <form action="">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div>
+            <p>&copy; 2024 Trip Ride | All Rights Reserved</p>
+        </div>
+    </section>
+</body>
+
+<script>
+    //  for toggle menu
+    var toggle = document.querySelector(".nav-items");
+
+    function hideMenu() {
+        toggle.classList.remove('active'); // Hide the menu
+    }
+
+    function showMenu() {
+        toggle.classList.add('active'); // Show the menu
+    }
+
+    // js for redirecting user to the next page from cards(hotel,restaurant,suggestions)
+    const hotel = document.querySelector("#hotel")
+    const restaurant = document.querySelector("#restaurant")
+    const attraction = document.querySelector("#attraction")
+
+    hotel.addEventListener("click", function () {
+        document.location.href = "/hotels"
+    });
+
+    restaurant.addEventListener("click", function () {
+        document.location.href = "/restaurants"
+    });
+
+    attraction.addEventListener("click", function () {
+        document.location.href = "/attractions"
+    });
+
+    // js for city 
+    var city;
+    var cities = document.querySelectorAll(".city-name"); // Select all elements with class 'city-name'
+    var imgcity = document.querySelectorAll(".city");
+    // this loop for each city with image logo
+    imgcity.forEach(cityElement => {
+        cityElement.addEventListener("click", (e) => {
+            city = cityElement.textContent; // Get the city name
+            city = city.trim()
+            let c = city.split('  ');
+            city = c[0]
+            // Redirect to cityDetail with the selected city as a query parameter
+            window.location.href = `cities?city=${city}`;
+        });
+    });
+    // Loop through each city and add an event listener
+    cities.forEach(cityElement => {
+        cityElement.addEventListener("click", (e) => {
+            city = cityElement.textContent; // Get the city name
+            let c = city.split(',');
+            city = c[0]
+            // Redirect to cityDetail with the selected city as a query parameter
+            window.location.href = `cities?city=${city}`;
+        });
+    });
+
+    //redirect to the live-location page 
+    function redirectToLocationPage() {
+        window.location.href = '/liveloc_data'; // Change this to your location page
+    }
+</script>
+
+</html>

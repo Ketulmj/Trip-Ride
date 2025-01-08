@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location Recommendations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px 0;
+        }
+
+        .card {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .attractions {
+            background-image: url('https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg?auto=compress&cs=tinysrgb&w=800');
+        }
+
+        .hotels {
+            background-image: url('https://images.pexels.com/photos/774042/pexels-photo-774042.jpeg?auto=compress&cs=tinysrgb&w=800');
+        }
+
+        .restaurants {
+            background-image: url('https://images.pexels.com/photos/28957292/pexels-photo-28957292/free-photo-of-delicious-asian-cuisine-spread-on-table.jpeg?auto=compress&cs=tinysrgb&w=800');
+        }
+
+        .card button {
+            position: absolute;
+            background-color: rgba(65, 134, 255, 0.8);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .card button:hover {
+            background-color: rgba(26, 115, 232, 1);
+        }
+
+        .place-title {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+
+        .place-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .place-card {
+            background-color: #1e1e1e;
+            color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .place-card:hover {
+            transform: scale(1.05);
+        }
+
+        .place-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .place-card-body {
+            padding: 15px;
+        }
+
+        .place-card-title {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .place-card-details {
+            font-size: 0.9em;
+            margin-bottom: 5px;
+            color: #b0b0b0;
+        }
+
+        .error-message {
+            color: red;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .loader {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid #fff;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+            display: none;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid">
+        <div class="card attractions">
+            <button onclick="getUserLocation('attractions')">View Attractions</button>
+        </div>
+        <div class="card hotels">
+            <button onclick="getUserLocation('hotels')">View Hotels</button>
+        </div>
+        <div class="card restaurants">
+            <button onclick="getUserLocation('restaurants')">View Restaurants</button>
+        </div>
+    </div>
+    <div class="loader" id="loader"></div>
+    <h2 id="placeTitle" class="place-title"></h2>
+    <div id="placeCards" class="place-cards"></div>
+    <p id="errorMessage" class="error-message"></p>
+
+    <script>
+        async function getUserLocation(type) {
+            document.getElementById('loader').style.display = 'block';
+            document.getElementById('placeTitle').textContent = '';
+            document.getElementById('placeCards').innerHTML = '';
+            document.getElementById('errorMessage').textContent = '';
+
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const lat = position.coords.latitude;
+                        const lng = position.coords.longitude;
+                        if (type === 'hotels') {
+                            fetchHotels(lat, lng, type);
+                        } else {
+                            fetchPlaces(lat, lng, type);
+                        }
+                    },
+                    (error) => {
+                        showError("Error getting location: " + error.message);
+                        document.getElementById('loader').style.display = 'none';
+                    }
+                );
+            } else {
+                showError("Geolocation is not supported by this browser.");
+                document.getElementById('loader').style.display = 'none';
+            }
+        }
+
+        function showError(message) {
+            document.getElementById('errorMessage').textContent = message;
+        }
+
+        async function fetchPlaces(latitude, longitude, type) {
+            try {
+                const response = await fetch(`http://localhost:5000/api/${type}?latitude=${latitude}&longitude=${longitude}`);
+                if (!response.ok) throw new Error(`Error: ${response.status} ${response.statusText}`);
+                const data = await response.json();
+                displayPlaces(data, type);
+            } catch (error) {
+                showError("Error fetching data. Please try again later.");
+                console.error(error);
+            } finally {
+                document.getElementById('loader').style.display = 'none';
+            }
+        }
+
+        async function fetchHotels(latitude, longitude, type) {
+            try {
+                const response = await fetch(`http://localhost:5000/api/hotels?latitude=${latitude}&longitude=${longitude}`);
+                const data = await response.json();
+                displayPlaces(data.results, type);
+            } catch (error) {
+                showError("Error fetching data. Please try again later.");
+                console.error(error);
+            } finally {
+                document.getElementById('loader').style.display = 'none';
+            }
+        }
+
+        function displayPlaces(places, type) {
+            const placeCardsContainer = document.getElementById('placeCards');
+            const titleMap = {
+                attractions: 'Attractions',
+                hotels: 'Hotels',
+                restaurants: 'Restaurants',
+            };
+            document.getElementById('placeTitle').textContent = `Showing ${titleMap[type]} Near You`;
+            console.log(places)
+            places.forEach(place => {
+                const card = document.createElement('div');
+                card.className = 'place-card';
+                card.innerHTML = `
+                    <img src="${place.photo?.images?.original?.url || place.photoMainUrl}" alt="${place.name}">
+                    <div class="place-card-body">
+                        <div class="place-card-title">${place.name}</div>
+                        <div class="place-card-details">Rating: ${place.rating || place.reviewScore || 'No Rating'} (${place.num_reviews || place.reviewCount || 'No Reviews'})</div>
+                        <div class="place-card-details">${place.priceDetails?.gross} ${place.priceDetails?.info || 'No Pricing Information'}</div>
+                        </div>
+                        `;
+                card.addEventListener("click", function () {
+                    const title = this.querySelector('.place-card-title').textContent;
+                    open_map(title);
+                });
+                placeCardsContainer.appendChild(card);
+            });
+        }
+        function open_map(query) {
+            const map_url = `https://www.google.com/maps?q=${encodeURIComponent(query)}`;
+            window.open(map_url, '_blank');
+        }
+    </script>
+</body>
+
+</html>

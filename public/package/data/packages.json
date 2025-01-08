@@ -1,0 +1,568 @@
+[
+  {
+    "id": 1,
+    "destination": "Taj Mahal, Agra",
+    "duration": "2 days / 1 night",
+    "price": "₹5000",
+    "description": "Visit the Taj Mahal with a guided tour.",
+    "inclusions": [
+      "Transportation",
+      "Guide and entry fees",
+      "Meals"
+    ],
+    "exclusions": [
+      "Personal expenses"
+    ],
+    "photos": [
+      "https://www.travelandleisure.com/thmb/wdUcyBQyQ0wUVs4wLahp0iWgZhc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/taj-mahal-agra-india-TAJ0217-9eab8f20d11d4391901867ed1ce222b8.jpg"
+    ],
+    "availability": [
+      {
+        "startDate": "2024-11-01",
+        "endDate": "2024-12-31"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "destination": "Jaipur, Rajasthan",
+    "duration": "3 days / 2 nights",
+    "price": "₹8000",
+    "description": "Explore the Pink City and its historic monuments.",
+    "inclusions": [
+      "Transportation",
+      "Accommodation",
+      "Guide and entry fees"
+    ],
+    "exclusions": [
+      "Personal expenses",
+      "Meals"
+    ],
+    "photos": [
+      "https://images.pexels.com/photos/3581369/pexels-photo-3581369.jpeg?auto=compress&cs=tinysrgb&w=800"
+    ],
+    "availability": [
+      {
+        "startDate": "2024-11-15",
+        "endDate": "2025-01-10"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "destination": "Varanasi, Uttar Pradesh",
+    "duration": "2 days / 1 night",
+    "price": "₹4500",
+    "description": "Experience the spiritual vibes of Varanasi.",
+    "inclusions": [
+      "Boat ride on the Ganges",
+      "Guide",
+      "Accommodation"
+    ],
+    "exclusions": [
+      "Meals",
+      "Personal expenses"
+    ],
+    "photos": [
+      "https://images.pexels.com/photos/8112558/pexels-photo-8112558.jpeg?auto=compress&cs=tinysrgb&w=800"
+    ],
+    "availability": [
+      {
+        "startDate": "2024-12-01",
+        "endDate": "2025-02-28"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "destination": "Kerala Backwaters",
+    "duration": "4 days / 3 nights",
+    "price": "₹10000",
+    "description": "Enjoy a tranquil cruise through the Kerala backwaters.",
+    "inclusions": [
+      "Houseboat stay",
+      "Meals",
+      "Guide"
+    ],
+    "exclusions": [
+      "Personal expenses"
+    ],
+    "photos": [
+      "https://images.pexels.com/photos/13044389/pexels-photo-13044389.jpeg?auto=compress&cs=tinysrgb&w=800"
+    ],
+    "availability": [
+      {
+        "startDate": "2024-11-20",
+        "endDate": "2025-03-31"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "destination": "Goa",
+    "duration": "5 days / 4 nights",
+    "price": "₹15000",
+    "description": "Relax on the beautiful beaches of Goa.",
+    "inclusions": [
+      "Transportation",
+      "Accommodation",
+      "Meals"
+    ],
+    "exclusions": [
+      "Personal expenses"
+    ],
+    "photos": [
+      "https://images.pexels.com/photos/4428276/pexels-photo-4428276.jpeg?auto=compress&cs=tinysrgb&w=800"
+    ],
+    "availability": [
+      {
+        "startDate": "2024-11-10",
+        "endDate": "2025-01-15"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "destination": "Leh-Ladakh, Jammu & Kashmir",
+    "duration": "7 days / 6 nights",
+    "price": "₹20000",
+    "description": "Explore the rugged landscapes of Leh-Ladakh.",
+    "inclusions": [
+      "Transportation",
+      "Accommodation",
+      "Guide"
+    ],
+    "exclusions": [
+      "Meals",
+      "Personal expenses"
+    ],
+    "photos": [
+      "https://images.pexels.com/photos/18646445/pexels-photo-18646445/free-photo-of-rangdum-village-in-zanskar-valley.jpeg?auto=compress&cs=tinysrgb&w=800"
+    ],
+    "availability": [
+      {
+        "startDate": "2024-06-01",
+        "endDate": "2024-09-30"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "destination": "Rishikesh, Uttarakhand",
+    "duration": "3 days / 2 nights",
+    "price": "₹7000",
+    "description": "Experience adventure and spirituality in Rishikesh.",
+    "inclusions": [
+      "Accommodation",
+      "Guide",
+      "Yoga session"
+    ],
+    "exclusions": [
+      "Meals",
+      "Personal expenses"
+    ],
+    "photos": [
+      "https://images.pexels.com/photos/5205768/pexels-photo-5205768.jpeg?auto=compress&cs=tinysrgb&w=800"
+    ],
+    "availability": [
+      {
+        "startDate": "2024-10-01",
+        "endDate": "2024-12-31"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "destination": "Udaipur, Rajasthan",
+    "duration": "3 days / 2 nights",
+    "price": "₹9000",
+    "description": "Discover the beauty of Udaipur, the City of Lakes.",
+    "inclusions": [
+      "Transportation",
+      "Accommodation",
+      "Guide"
+    ],
+    "exclusions": [
+      "Meals",
+      "Personal expenses"
+    ],
+    "photos": [
+      "https://images.pexels.com/photos/18526645/pexels-photo-18526645/free-photo-of-scenic-cityscape-of-udaipur-india.jpeg?auto=compress&cs=tinysrgb&w=800"
+    ],
+    "availability": [
+      {
+        "startDate": "2024-11-01",
+        "endDate": "2025-01-31"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "destination": "Manali, Himachal Pradesh",
+    "duration": "4 days / 3 nights",
+    "price": "₹12000",
+    "description": "Adventure and nature lovers' paradise in Manali.",
+    "inclusions": [
+      "Accommodation",
+      "Guide",
+      "Trekking"
+    ],
+    "exclusions": [
+      "Meals",
+      "Personal expenses"
+    ],
+    "photos": [
+      "https://images.pexels.com/photos/19992232/pexels-photo-19992232/free-photo-of-kasol-himachal-pradesh.jpeg?auto=compress&cs=tinysrgb&w=800"
+    ],
+    "availability": [
+      {
+        "startDate": "2024-04-01",
+        "endDate": "2024-06-30"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "destination": "Ranthambore National Park, Rajasthan",
+    "duration": "3 days / 2 nights",
+    "price": "₹11000",
+    "description": "Explore wildlife in Ranthambore National Park.",
+    "inclusions": [
+      "Safari",
+      "Accommodation",
+      "Guide"
+    ],
+    "exclusions": [
+      "Meals",
+      "Personal expenses"
+    ],
+    "photos": [
+      "https://images.pexels.com/photos/13613061/pexels-photo-13613061.jpeg?auto=compress&cs=tinysrgb&w=800"
+    ],
+    "availability": [
+      {
+        "startDate": "2024-11-01",
+        "endDate": "2025-03-31"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "destination": "Eiffel Tower, Paris",
+    "duration": "1 day",
+    "price": "€60",
+    "description": "Experience the breathtaking views of Paris from the Eiffel Tower.",
+    "inclusions": [
+      "Skip-the-line ticket",
+      "Audio guide",
+      "Access to the second floor"
+    ],
+    "exclusions": [
+      "Lunch",
+      "Personal expenses"
+    ],
+    "photos": [
+      "https://images.pexels.com/photos/1530259/pexels-photo-1530259.jpeg?auto=compress&cs=tinysrgb&w=800"
+    ],
+    "availability": [
+      {
+        "startDate": "2024-01-01",
+        "endDate": "2024-12-31"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "destination": "Great Wall of China, Beijing",
+    "duration": "1 day",
+    "price": "¥300",
+    "description": "Visit the iconic Great Wall and enjoy stunning views.",
+    "inclusions": [
+      "Transportation",
+      "Guide services",
+      "Entry fees"
+    ],
+    "exclusions": [
+      "Meals",
+      "Personal expenses"
+    ],
+    "photos": [
+      "https://images.pexels.com/photos/2412603/pexels-photo-2412603.jpeg?auto=compress&cs=tinysrgb&w=800"
+    ],
+    "availability": [
+      {
+        "startDate": "2024-03-01",
+        "endDate": "2024-11-30"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "destination": "Colosseum, Rome",
+    "duration": "2 hours",
+    "price": "€25",
+    "description": "Explore the ancient ruins of the Colosseum with a guided tour.",
+    "inclusions": [
+      "Entry ticket",
+      "Guided tour"
+    ],
+    "exclusions": [
+      "Meals",
+      "Personal expenses"
+    ],
+    "photos": [
+      "https://images.pexels.com/photos/29566780/pexels-photo-29566780/free-photo-of-majestic-view-of-the-colosseum-in-rome.jpeg?auto=compress&cs=tinysrgb&w=800"
+    ],
+    "availability": [
+      {
+        "startDate": "2024-05-01",
+        "endDate": "2024-10-31"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "destination": "Machu Picchu, Peru",
+    "duration": "2 days / 1 night",
+    "price": "$450",
+    "description": "Discover the ancient Inca city of Machu Picchu with an overnight stay.",
+    "inclusions": [
+      "Train tickets",
+      "Guide services",
+      "Accommodation"
+    ],
+    "exclusions": [
+      "Meals",
+      "Personal expenses"
+    ],
+    "photos": [
+      "https://images.pexels.com/photos/2929906/pexels-photo-2929906.jpeg?auto=compress&cs=tinysrgb&w=800"
+    ],
+    "availability": [
+      {
+        "startDate": "2024-01-01",
+        "endDate": "2024-12-31"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "destination": "Statue of Liberty, New York",
+    "duration": "4 hours",
+    "price": "$30",
+    "description": "Visit the iconic Statue of Liberty and enjoy a ferry ride.",
+    "inclusions": [
+      "Ferry ticket",
+      "Audio guide"
+    ],
+    "exclusions": [
+      "Lunch",
+      "Personal expenses"
+    ],
+    "photos": [
+      "https://images.pexels.com/photos/29580357/pexels-photo-29580357/free-photo-of-statue-of-liberty-against-clear-blue-sky.jpeg?auto=compress&cs=tinysrgb&w=800"
+    ],
+    "availability": [
+      {
+        "startDate": "2024-06-01",
+        "endDate": "2024-11-30"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "destination": "Santorini, Greece",
+    "duration": "3 days / 2 nights",
+    "price": "€600",
+    "description": "Experience the stunning sunsets and beautiful beaches of Santorini.",
+    "inclusions": [
+      "Accommodation",
+      "Breakfast",
+      "Guided tours"
+    ],
+    "exclusions": [
+      "Flights",
+      "Personal expenses"
+    ],
+    "photos": [
+      "https://images.pexels.com/photos/1010657/pexels-photo-1010657.jpeg?auto=compress&cs=tinysrgb&w=800"
+    ],
+    "availability": [
+      {
+        "startDate": "2024-04-01",
+        "endDate": "2024-10-31"
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "destination": "Sydney Opera House, Australia",
+    "duration": "1 day",
+    "price": "$70",
+    "description": "Explore the iconic Sydney Opera House and take a guided tour.",
+    "inclusions": [
+      "Guided tour",
+      "Entry fees"
+    ],
+    "exclusions": [
+      "Meals",
+      "Personal expenses"
+    ],
+    "photos": [
+      "https://images.pexels.com/photos/2845013/pexels-photo-2845013.jpeg?auto=compress&cs=tinysrgb&w=800"
+    ],
+    "availability": [
+      {
+        "startDate": "2024-01-01",
+        "endDate": "2024-12-31"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "destination": "Niagara Falls, USA/Canada",
+    "duration": "1 day",
+    "price": "$80",
+    "description": "Experience the breathtaking beauty of Niagara Falls.",
+    "inclusions": [
+      "Boat tour",
+      "Guide services"
+    ],
+    "exclusions": [
+      "Meals",
+      "Personal expenses"
+    ],
+    "photos": [
+      "https://images.pexels.com/photos/1816237/pexels-photo-1816237.jpeg?auto=compress&cs=tinysrgb&w=800"
+    ],
+    "availability": [
+      {
+        "startDate": "2024-05-01",
+        "endDate": "2024-10-31"
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "destination": "Burj Khalifa, Dubai",
+    "duration": "2 hours",
+    "price": "AED 150",
+    "description": "Visit the tallest building in the world and enjoy panoramic views.",
+    "inclusions": [
+      "Entry ticket",
+      "Guided tour"
+    ],
+    "exclusions": [
+      "Meals",
+      "Personal expenses"
+    ],
+    "photos": [
+      "https://images.pexels.com/photos/20153777/pexels-photo-20153777/free-photo-of-view-of-illuminated-skyscrapers-in-downtown-dubai-uae.jpeg?auto=compress&cs=tinysrgb&w=800"
+    ],
+    "availability": [
+      {
+        "startDate": "2024-01-01",
+        "endDate": "2024-12-31"
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "destination": "Pyramids of Giza, Egypt",
+    "duration": "1 day",
+    "price": "$50",
+    "description": "Explore the ancient Pyramids of Giza and learn about their history.",
+    "inclusions": [
+      "Transportation",
+      "Guide services",
+      "Entry fees"
+    ],
+    "exclusions": [
+      "Meals",
+      "Personal expenses"
+    ],
+    "photos": [
+      "https://images.pexels.com/photos/71241/pexels-photo-71241.jpeg?auto=compress&cs=tinysrgb&w=800"
+    ],
+    "availability": [
+      {
+        "startDate": "2024-02-01",
+        "endDate": "2024-11-30"
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "destination": "Acropolis, Athens",
+    "duration": "4 hours",
+    "price": "€20",
+    "description": "Visit the ancient Acropolis and learn about Greek history.",
+    "inclusions": [
+      "Entry ticket",
+      "Guided tour"
+    ],
+    "exclusions": [
+      "Meals",
+      "Personal expenses"
+    ],
+    "photos": [
+      "https://images.pexels.com/photos/772689/pexels-photo-772689.jpeg?auto=compress&cs=tinysrgb&w=800"
+    ],
+    "availability": [
+      {
+        "startDate": "2024-03-01",
+        "endDate": "2024-10-31"
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "destination": "Stonehenge, UK",
+    "duration": "1 day",
+    "price": "£45",
+    "description": "Explore the prehistoric monument of Stonehenge.",
+    "inclusions": [
+      "Entry ticket",
+      "Audio guide"
+    ],
+    "exclusions": [
+      "Meals",
+      "Personal expenses"
+    ],
+    "photos": [
+      "https://images.pexels.com/photos/2497299/pexels-photo-2497299.jpeg?auto=compress&cs=tinysrgb&w=800"
+    ],
+    "availability": [
+      {
+        "startDate": "2024-01-01",
+        "endDate": "2024-12-31"
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "destination": "Christ the Redeemer, Brazil",
+    "duration": "1 day",
+    "price": "$70",
+    "description": "Visit the iconic Christ the Redeemer statue in Rio de Janeiro.",
+    "inclusions": [
+      "Transportation",
+      "Guide services",
+      "Entry fees"
+    ],
+    "exclusions": [
+      "Meals",
+      "Personal expenses"
+    ],
+    "photos": [
+      "https://images.pexels.com/photos/14996556/pexels-photo-14996556/free-photo-of-christ-the-redeemer-in-brazil.jpeg?auto=compress&cs=tinysrgb&w=800"
+    ],
+    "availability": [
+      {
+        "startDate": "2024-04-01",
+        "endDate": "2024-12-31"
+      }
+    ]
+  }
+  
+]

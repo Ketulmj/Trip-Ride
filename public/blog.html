@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/media/logo-remove-bg.png" type="image/icon type">
+    <link rel="stylesheet" href="/blog.css" type="text/css">
+    <title>Trip Ride</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Travel Blog</div>
+        </nav>
+    </header>
+    <main>
+        <section class="intro-section">
+            <h1>Travel Blog</h1>
+            <p>Read about the latest travel destinations, tips, and experiences.</p>
+        </section>
+        
+        <section class="add-blog-section">
+            <h2>Add a New Blog Post</h2>
+            <form id="add-blog-form">
+                <input type="text" id="blog-title" placeholder="Blog Title" required>
+                <textarea id="blog-description" placeholder="Blog Description" required></textarea>
+                <input type="url" id="blog-image" placeholder="Image URL" required>
+                <input type="text" id="blog-author" placeholder="Your Name" required>
+                <input type="number" id="blog-rating" placeholder="Rating (1-5)" min="1" max="5" required>
+                <button type="submit">Add Blog Post</button>
+            </form>
+        </section>
+        <section id="blog-container" class="blog-container">
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Trip Ride. All rights reserved.</p>
+    </footer>
+
+    <script>
+        async function fetchBlogs() {
+            const response = await fetch('/api/blogs');
+            const blogs = await response.json();
+            return blogs;
+        }
+
+        async function displayBlogPosts() {
+            const blogPosts = await fetchBlogs();
+            const blogContainer = document.getElementById('blog-container');
+            blogContainer.innerHTML = '';
+
+            blogPosts.forEach((post, index) => {
+                const blogPost = document.createElement('article');
+                blogPost.classList.add('blog-post');
+                blogPost.innerHTML = `
+                    <img src="${post.image}" alt="${post.title}">
+                    <h2>${post.title}</h2>
+                    <p>${post.description}</p>
+                    <div class="rating">${'★'.repeat(post.rating)}${'☆'.repeat(5 - post.rating)}</div>
+                    <p><strong>Written by:</strong> ${post.author}</p>
+                    <div class="comments-section" id="comments-${index}">
+                        <h3>Comments</h3>
+                        <div class="comment-list">
+                            ${post.comments.map(comment => `<div class="comment">${comment}</div>`).join('')}
+                        </div>
+                        <form class="comment-form" onsubmit="addComment(event, ${index})">
+                            <input type="text" placeholder="Add a comment" required>
+                            <button type="submit">Comment</button>
+                        </form>
+                    </div>
+                `;
+                blogContainer.appendChild(blogPost);
+            });
+        }
+
+        document.getElementById('add-blog-form').addEventListener('submit', async function (event) {
+            event.preventDefault();
+            const title = document.getElementById('blog-title').value;
+            const description = document.getElementById('blog-description').value;
+            const image = document.getElementById('blog-image').value;
+            const author = document.getElementById('blog-author').value;
+            const rating = document.getElementById('blog-rating').value;
+            const newBlogPost = { title, description, image, comments: [], rating: parseInt(rating), author };
+            await fetch('/api/blogs', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newBlogPost),
+            });
+            document.getElementById('add-blog-form').reset();
+            displayBlogPosts();
+        });
+
+        async function addComment(event, index) {
+            event.preventDefault();
+            const commentInput = event.target.querySelector('input[type="text"]');
+            const comment = commentInput.value;
+            // console.log(comment);
+            await fetch(`/api/blogs/${ index }/comments`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ comment }),
+            });
+            commentInput.value = '';
+            displayBlogPosts();
+        }
+        window.onload = displayBlogPosts();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Packages</title>
+    <style>
+        /* Styling copied from the updated index.html */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .navbar {
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+            font-size: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .wishlist-button {
+            background-color: #ff7f50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .wishlist-button:hover {
+            background-color: #ff4500;
+            transform: translateY(-2px);
+        }
+
+        .package-container {
+            padding: 40px;
+        }
+
+        .filter-section {
+            padding: 20px;
+            background-color: #fff;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            align-items: center;
+            gap: 15px;
+        }
+
+        .filter-section h2 {
+            flex-basis: 100%;
+            margin-bottom: 15px;
+            font-size: 24px;
+            color: #007bff;
+            text-align: center;
+        }
+
+        .filter-list {
+            display: flex;
+        }
+
+        .filter-item {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            width: 100%;
+            margin: 15px;
+        }
+
+        .filter-section label {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .filter-section input[type="text"],
+        .filter-section input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .filter-section input[type="text"]:focus,
+        .filter-section input[type="number"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .filter-section button {
+            background-color: #007bff;
+            color: white;
+            /* padding: 5px 10px; */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s, transform 0.2s;
+            display: block;
+            margin: 10px auto 0;
+            width: 20%;
+            height: 2.5em;
+        }
+
+        .filter-section button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .package-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .package-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .package-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .package-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .package-details {
+            padding: 20px;
+        }
+
+        .package-details h2 {
+            font-size: 22px;
+            color: #333;
+        }
+
+        .add-to-favorite-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            margin-top: 10px;
+        }
+
+        .add-to-favorite-btn:hover {
+            background-color: #1a5e8f;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <button class="wishlist-button" onclick="window.location.href='/';">Home</button>
+        Top Travel Packages
+        <button class="wishlist-button" onclick="window.location.href='/wishlist';">View Wishlist</button>
+    </div>
+
+    <div class="filter-section">
+        <h2>Packages by Your Choice!</h2>
+        <div class="filter-list">
+            <div class="filter-item">
+                <label for="destination-filter">Destination </label>
+                <input type="text" id="destination-filter" placeholder="Enter destination">
+            </div>
+
+            <div class="filter-item">
+                <label for="min-price-filter">Min Price </label>
+                <input type="number" id="min-price-filter" placeholder="Min Price" min="0">
+            </div>
+
+            <div class="filter-item">
+                <label for="max-price-filter">Max Price </label>
+                <input type="number" id="max-price-filter" placeholder="Max Price" min="0">
+            </div>
+        </div>
+        <button id="filter-btn">Filter</button>
+    </div>
+    <div id="package-container" class="package-container"></div>
+
+    <script>
+        async function addToFavorites(packageId) {
+            try {
+                await fetch('/wishlist', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ packageId })
+                });
+                alert('Package added to your wishlist!');
+            } catch (error) {
+                alert('Error adding to wishlist.');
+            }
+        }
+
+        let allPackages = [];
+        fetch('/packages')
+            .then(response => response.json())
+            .then(packages => {
+                allPackages = packages;
+                displayPackages(allPackages);
+            });
+
+        function displayPackages(packages) {
+            const packageContainer = document.getElementById('package-container');
+            packageContainer.innerHTML = '';
+            packages.forEach(pkg => {
+                const packageCard = document.createElement('div');
+                packageCard.classList.add('package-card');
+                packageCard.innerHTML = `
+                    <img src="${pkg.photos[0]}" alt="${pkg.destination}">
+                    <div class="package-details">
+                        <h2>${pkg.destination}</h2>
+                        <p>${pkg.description}</p>
+                        <p class="price">${pkg.price}</p>
+                        <button class="add-to-favorite-btn" onclick="addToFavorites(${pkg.id})">Add to Favorites</button>
+                    </div>
+                `;
+                packageContainer.appendChild(packageCard);
+            });
+        }
+
+        document.getElementById('filter-btn').addEventListener('click', () => {
+            const destination = document.getElementById('destination-filter').value.toLowerCase();
+            const minPrice = parseInt(document.getElementById('min-price-filter').value) || 0;
+            const maxPrice = parseInt(document.getElementById('max-price-filter').value) || Infinity;
+
+            const filteredPackages = allPackages.filter(pkg => {
+                const priceValue = parseInt(pkg.price.replace(/[^0-9]/g, ''));
+                return pkg.destination.toLowerCase().includes(destination) &&
+                    priceValue >= minPrice &&
+                    priceValue <= maxPrice;
+            });
+
+            displayPackages(filteredPackages);
+        });
+    </script>
+</body>
+
+</html>

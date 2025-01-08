@@ -1,0 +1,446 @@
+[
+  {
+    "id": 1,
+    "destination": "Great Indian Desert Safari",
+    "duration": "5 days / 4 nights",
+    "price": "₹25,000",
+    "description": "Experience the vast and majestic Indian desert with camel rides and luxurious camps.",
+    "category": "adventure",
+    "inclusions": ["Camel Safari", "Meals", "Accommodation", "Guide"],
+    "exclusions": ["Personal expenses", "Travel insurance"],
+    "photos": ["https://www.tigersafariindia.com/blog/wp-content/uploads/2019/11/aB89T2319.jpg"],
+    "availability": [
+      {
+        "startDate": "2024-11-01",
+        "endDate": "2024-12-31"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "destination": "Rishikesh River Rafting",
+    "duration": "3 days / 2 nights",
+    "price": "₹15,000",
+    "description": "A thrilling adventure of river rafting in Rishikesh with bonfire nights and camping.",
+    "category": "adventure",
+    "inclusions": ["River Rafting", "Meals", "Accommodation", "Guide"],
+    "exclusions": ["Travel insurance", "Personal expenses"],
+    "photos": ["https://vl-prod-static.b-cdn.net/system/images/000/505/573/ae722695fba0950a54b99232d1c323a4/banner/Rishikesh-rafting.jpg?1621344921"],
+    "availability": [
+      {
+        "startDate": "2024-10-15",
+        "endDate": "2024-11-30"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "destination": "Mount Everest Base Camp Trek",
+    "duration": "14 days / 13 nights",
+    "price": "₹85,000",
+    "description": "A lifetime trek to the base of the world's highest peak, Mount Everest.",
+    "category": "trekking",
+    "inclusions": ["Guide", "Meals", "Accommodation", "Trekking Gear"],
+    "exclusions": ["Personal expenses", "Insurance"],
+    "photos": ["https://img.freepik.com/free-photo/landscape-shot-beautiful-cholatse-mountains-body-water-khumbu-nepal_181624-24825.jpg?ga=GA1.1.2070754601.1722793245&semt=ais_hybrid"],
+    "availability": [
+      {
+        "startDate": "2024-11-10",
+        "endDate": "2024-12-20"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "destination": "Valley of Flowers Trek",
+    "duration": "7 days / 6 nights",
+    "price": "₹35,000",
+    "description": "A scenic trek through the Valley of Flowers, a UNESCO World Heritage Site in Uttarakhand.",
+    "category": "trekking",
+    "inclusions": ["Guide", "Meals", "Accommodation"],
+    "exclusions": ["Trekking gear", "Personal expenses"],
+    "photos": ["https://images.pexels.com/photos/459038/pexels-photo-459038.jpeg?auto=compress&cs=tinysrgb&w=800"],
+    "availability": [
+      {
+        "startDate": "2024-06-01",
+        "endDate": "2024-09-30"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "destination": "Rajasthan Heritage Tour",
+    "duration": "8 days / 7 nights",
+    "price": "₹50,000",
+    "description": "Discover the royal heritage of Rajasthan, including forts, palaces, and vibrant culture.",
+    "category": "heritage",
+    "inclusions": ["Guide", "Meals", "Accommodation", "Entrance Fees"],
+    "exclusions": ["Personal shopping", "Travel insurance"],
+    "photos": ["https://images.pexels.com/photos/13062114/pexels-photo-13062114.jpeg?auto=compress&cs=tinysrgb&w=800"],
+    "availability": [
+      {
+        "startDate": "2024-10-01",
+        "endDate": "2024-12-31"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "destination": "Hampi Heritage Tour",
+    "duration": "5 days / 4 nights",
+    "price": "₹30,000",
+    "description": "Explore the ancient ruins of Hampi, a UNESCO World Heritage Site, and experience its rich history.",
+    "category": "heritage",
+    "inclusions": ["Guide", "Meals", "Accommodation", "Entrance Fees"],
+    "exclusions": ["Personal expenses", "Travel insurance"],
+    "photos": ["https://images.pexels.com/photos/18331785/pexels-photo-18331785/free-photo-of-stone-chariot-in-vittala-temple-complex.jpeg?auto=compress&cs=tinysrgb&w=800"],
+    "availability": [
+      {
+        "startDate": "2024-11-15",
+        "endDate": "2024-12-15"
+      }
+    ]
+  },
+  
+    {
+      "id": 7,
+      "destination": "Goa Honeymoon Package",
+      "duration": "5 days / 4 nights",
+      "price": "₹40,000",
+      "description": "Enjoy a romantic getaway in Goa with stunning beaches and vibrant nightlife.",
+      "category": "honeymoon",
+      "inclusions": ["Accommodation", "Airport Transfers", "Daily Breakfast", "Couples Spa Treatment"],
+      "exclusions": ["Flights", "Personal expenses"],
+      "photos": ["https://images.pexels.com/photos/88212/pexels-photo-88212.jpeg?auto=compress&cs=tinysrgb&w=800"],
+      "availability": [
+        {
+          "startDate": "2024-01-01",
+          "endDate": "2024-12-31"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "destination": "Udaipur Romantic Getaway",
+      "duration": "4 days / 3 nights",
+      "price": "₹35,000",
+      "description": "Experience the city of lakes with romantic boat rides and luxury heritage hotels.",
+      "category": "honeymoon",
+      "inclusions": ["Accommodation", "City Tour", "Lake Cruise", "Dinner at a Heritage Hotel"],
+      "exclusions": ["Flights", "Personal expenses"],
+      "photos": ["https://images.pexels.com/photos/18526644/pexels-photo-18526644/free-photo-of-cityscape-of-udaipur-india.jpeg?auto=compress&cs=tinysrgb&w=800"],
+      "availability": [
+        {
+          "startDate": "2024-02-01",
+          "endDate": "2024-11-30"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "destination": "Andaman Islands Beach Tour",
+      "duration": "6 days / 5 nights",
+      "price": "₹50,000",
+      "description": "Explore the pristine beaches and crystal-clear waters of the Andaman Islands with snorkeling.",
+      "category": "beaches",
+      "inclusions": ["Accommodation", "Island Hopping Tour", "Daily Breakfast", "Water Sports"],
+      "exclusions": ["Flights", "Personal expenses"],
+      "photos": ["https://images.pexels.com/photos/6757981/pexels-photo-6757981.jpeg?auto=compress&cs=tinysrgb&w=800"],
+      "availability": [
+        {
+          "startDate": "2024-03-01",
+          "endDate": "2024-12-15"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "destination": "Pondicherry Beach Experience",
+      "duration": "5 days / 4 nights",
+      "price": "₹30,000",
+      "description": "Relax on the serene beaches of Pondicherry, blending French colonial charm with stunning coastlines.",
+      "category": "beaches",
+      "inclusions": ["Accommodation", "Beachfront Activities", "Daily Breakfast"],
+      "exclusions": ["Flights", "Personal expenses"],
+      "photos": ["https://images.pexels.com/photos/29614360/pexels-photo-29614360/free-photo-of-sunny-beach-with-swimmers-and-beach-umbrellas.jpeg?auto=compress&cs=tinysrgb&w=800"],
+      "availability": [
+        {
+          "startDate": "2024-04-01",
+          "endDate": "2024-10-31"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "destination": "Varanasi Temple Tour",
+      "duration": "3 days / 2 nights",
+      "price": "₹15,000",
+      "description": "Experience the spiritual essence of India in Varanasi, with guided tours of ancient temples.",
+      "category": "temples",
+      "inclusions": ["Accommodation", "City Tour", "Ganga Aarti Ceremony", "Daily Breakfast"],
+      "exclusions": ["Flights", "Personal expenses"],
+      "photos": ["https://images.pexels.com/photos/8112519/pexels-photo-8112519.jpeg?auto=compress&cs=tinysrgb&w=800"],
+      "availability": [
+        {
+          "startDate": "2024-01-15",
+          "endDate": "2024-12-31"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "destination": "Khajuraho Temples Tour",
+      "duration": "4 days / 3 nights",
+      "price": "₹18,000",
+      "description": "Discover the UNESCO World Heritage Sites in Khajuraho, known for their stunning temple architecture.",
+      "category": "temples",
+      "inclusions": ["Accommodation", "Guided Temple Tour", "Cultural Evening", "Daily Breakfast"],
+      "exclusions": ["Flights", "Personal expenses"],
+      "photos": ["https://images.pexels.com/photos/5246781/pexels-photo-5246781.jpeg?auto=compress&cs=tinysrgb&w=800"],
+      "availability": [
+        {
+          "startDate": "2024-02-15",
+          "endDate": "2024-11-30"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "destination": "Ranthambore Wildlife Safari",
+      "duration": "3 days / 2 nights",
+      "price": "₹25,000",
+      "description": "Embark on an exciting wildlife safari in Ranthambore National Park, home to tigers.",
+      "category": "wildlife",
+      "inclusions": ["Accommodation", "Safari Rides", "Daily Meals", "Guided Tours"],
+      "exclusions": ["Flights", "Personal expenses"],
+      "photos": ["https://images.pexels.com/photos/12436501/pexels-photo-12436501.jpeg?auto=compress&cs=tinysrgb&w=800"],
+      "availability": [
+        {
+          "startDate": "2024-01-01",
+          "endDate": "2024-12-31"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "destination": "Kaziranga National Park Tour",
+      "duration": "4 days / 3 nights",
+      "price": "₹30,000",
+      "description": "Explore Kaziranga National Park, famous for its one-horned rhinoceros and rich biodiversity.",
+      "category": "wildlife",
+      "inclusions": ["Accommodation", "Safari Rides", "Daily Meals", "Bird Watching Tour"],
+      "exclusions": ["Flights", "Personal expenses"],
+      "photos": ["https://images.pexels.com/photos/16258341/pexels-photo-16258341/free-photo-of-rhino-in-nature.jpeg?auto=compress&cs=tinysrgb&w=800"],
+      "availability": [
+        {
+          "startDate": "2024-02-01",
+          "endDate": "2024-10-31"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "destination": "Jaipur Cultural Experience",
+      "duration": "4 days / 3 nights",
+      "price": "₹22,000",
+      "description": "Immerse yourself in the rich culture and heritage of Jaipur with visits to forts and palaces.",
+      "category": "cultural",
+      "inclusions": ["Accommodation", "City Tour", "Cultural Show", "Daily Breakfast"],
+      "exclusions": ["Flights", "Personal expenses"],
+      "photos": ["https://images.pexels.com/photos/16738852/pexels-photo-16738852/free-photo-of-entrance-to-the-city-palace-jaipur-india.jpeg?auto=compress&cs=tinysrgb&w=800"],
+      "availability": [
+        {
+          "startDate": "2024-03-01",
+          "endDate": "2024-12-31"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "destination": "Kerala Backwaters Experience",
+      "duration": "5 days / 4 nights",
+      "price": "₹30,000",
+      "description": "Experience the serene beauty of Kerala's backwaters with a houseboat stay.",
+      "category": "cultural",
+      "inclusions": ["Accommodation", "Houseboat Stay", "Local Tours", "Daily Meals"],
+      "exclusions": ["Flights", "Personal expenses"],
+      "photos": ["https://images.pexels.com/photos/5374224/pexels-photo-5374224.jpeg?auto=compress&cs=tinysrgb&w=800"],
+      "availability": [
+        {
+          "startDate": "2024-01-01",
+          "endDate": "2024-12-31"
+        }
+      ]
+    },
+      {
+        "id": 17,
+        "destination": "Grand Canyon National Park, USA",
+        "duration": "3 days / 2 nights",
+        "price": "$1,500",
+        "description": "Discover the breathtaking views of the Grand Canyon with guided hiking tours and helicopter rides.",
+        "category": "adventure",
+        "inclusions": ["Guided Hikes", "Meals", "Accommodation", "Helicopter Ride"],
+        "exclusions": ["Personal expenses", "Travel insurance"],
+        "photos": ["https://images.pexels.com/photos/16357672/pexels-photo-16357672/free-photo-of-a-sign-in-a-park.jpeg?auto=compress&cs=tinysrgb&w=800"],
+        "availability": [
+          {
+            "startDate": "2024-03-01",
+            "endDate": "2024-11-30"
+          }
+        ]
+      },
+      {
+        "id": 18,
+        "destination": "Great Barrier Reef, Australia",
+        "duration": "5 days / 4 nights",
+        "price": "$2,000",
+        "description": "Explore the underwater marvels of the Great Barrier Reef with snorkeling and diving experiences.",
+        "category": "adventure",
+        "inclusions": ["Snorkeling", "Diving", "Accommodation", "Meals"],
+        "exclusions": ["Personal expenses", "Travel insurance"],
+        "photos": ["https://images.pexels.com/photos/26447294/pexels-photo-26447294/free-photo-of-heart-reef.jpeg?auto=compress&cs=tinysrgb&w=800"],
+        "availability": [
+          {
+            "startDate": "2024-04-01",
+            "endDate": "2024-09-30"
+          }
+        ]
+      },
+      {
+        "id": 19,
+        "destination": "Machu Picchu, Peru",
+        "duration": "7 days / 6 nights",
+        "price": "$3,000",
+        "description": "Trek the famous Inca Trail to the ancient citadel of Machu Picchu, a UNESCO World Heritage Site.",
+        "category": "trekking",
+        "inclusions": ["Guide", "Meals", "Accommodation", "Trail Permits"],
+        "exclusions": ["Personal expenses", "Travel insurance"],
+        "photos": ["https://images.pexels.com/photos/2929906/pexels-photo-2929906.jpeg?auto=compress&cs=tinysrgb&w=800"],
+        "availability": [
+          {
+            "startDate": "2024-05-01",
+            "endDate": "2024-10-31"
+          }
+        ]
+      },
+      {
+        "id": 20,
+        "destination": "Santorini, Greece",
+        "duration": "4 days / 3 nights",
+        "price": "$1,800",
+        "description": "Relax on the iconic white-washed cliffs of Santorini with beautiful sunset views and luxurious stays.",
+        "category": "honeymoon",
+        "inclusions": ["Accommodation", "Meals", "Sunset Cruise", "Wine Tasting"],
+        "exclusions": ["Flights", "Personal expenses"],
+        "photos": ["https://images.pexels.com/photos/1010657/pexels-photo-1010657.jpeg?auto=compress&cs=tinysrgb&w=800"],
+        "availability": [
+          {
+            "startDate": "2024-06-01",
+            "endDate": "2024-09-30"
+          }
+        ]
+      },
+      {
+        "id": 21,
+        "destination": "Pyramids of Giza, Egypt",
+        "duration": "5 days / 4 nights",
+        "price": "$2,500",
+        "description": "Explore the ancient Pyramids of Giza and the Sphinx, with guided tours of Egypt’s historical treasures.",
+        "category": "heritage",
+        "inclusions": ["Guide", "Meals", "Accommodation", "Entrance Fees"],
+        "exclusions": ["Flights", "Personal expenses"],
+        "photos": ["https://images.pexels.com/photos/2359/sand-desert-statue-pyramid.jpg?auto=compress&cs=tinysrgb&w=800"],
+        "availability": [
+          {
+            "startDate": "2024-03-01",
+            "endDate": "2024-11-30"
+          }
+        ]
+      },
+      {
+        "id": 22,
+        "destination": "Serengeti Safari, Tanzania",
+        "duration": "6 days / 5 nights",
+        "price": "$4,000",
+        "description": "Witness the Great Migration on an exhilarating safari in the Serengeti, home to Africa’s 'Big Five'.",
+        "category": "wildlife",
+        "inclusions": ["Accommodation", "Safari Tours", "Meals", "Guide"],
+        "exclusions": ["Flights", "Personal expenses"],
+        "photos": ["https://images.pexels.com/photos/259554/pexels-photo-259554.jpeg?auto=compress&cs=tinysrgb&w=800"],
+        "availability": [
+          {
+            "startDate": "2024-06-01",
+            "endDate": "2024-09-30"
+          }
+        ]
+      },
+      {
+        "id": 23,
+        "destination": "Bali Beach Escape, Indonesia",
+        "duration": "5 days / 4 nights",
+        "price": "$1,700",
+        "description": "Relax on the stunning beaches of Bali with cultural tours and spa treatments included.",
+        "category": "beaches",
+        "inclusions": ["Accommodation", "Daily Breakfast", "Spa Treatment", "Cultural Tours"],
+        "exclusions": ["Flights", "Personal expenses"],
+        "photos": ["https://images.pexels.com/photos/9094948/pexels-photo-9094948.jpeg?auto=compress&cs=tinysrgb&w=800"],
+        "availability": [
+          {
+            "startDate": "2024-01-01",
+            "endDate": "2024-12-31"
+          }
+        ]
+      },
+      {
+        "id": 24,
+        "destination": "Tokyo Temple Tour, Japan",
+        "duration": "4 days / 3 nights",
+        "price": "$2,200",
+        "description": "Explore the ancient temples of Tokyo, including guided tours of Sensoji and Meiji Shrine.",
+        "category": "temples",
+        "inclusions": ["Accommodation", "Temple Tours", "Meals", "City Guide"],
+        "exclusions": ["Flights", "Personal expenses"],
+        "photos": ["https://images.pexels.com/photos/29282022/pexels-photo-29282022/free-photo-of-crowded-senso-ji-temple-in-asakusa-tokyo.jpeg?auto=compress&cs=tinysrgb&w=800"],
+        "availability": [
+          {
+            "startDate": "2024-03-01",
+            "endDate": "2024-12-31"
+          }
+        ]
+      },
+      {
+        "id": 25,
+        "destination": "Eiffel Tower & Paris Highlights, France",
+        "duration": "5 days / 4 nights",
+        "price": "$2,500",
+        "description": "Discover the romance of Paris with a visit to the Eiffel Tower, Seine River Cruise, and Louvre Museum.",
+        "category": "cultural",
+        "inclusions": ["Accommodation", "City Tours", "Eiffel Tower Entry", "Cruise"],
+        "exclusions": ["Flights", "Personal expenses"],
+        "photos": ["https://images.pexels.com/photos/1530259/pexels-photo-1530259.jpeg?auto=compress&cs=tinysrgb&w=800"],
+        "availability": [
+          {
+            "startDate": "2024-01-01",
+            "endDate": "2024-12-31"
+          }
+        ]
+      },
+      {
+        "id": 26,
+        "destination": "Venice Romantic Getaway, Italy",
+        "duration": "4 days / 3 nights",
+        "price": "$2,000",
+        "description": "Sail through the canals of Venice, enjoy a gondola ride, and explore historical sites.",
+        "category": "honeymoon",
+        "inclusions": ["Accommodation", "Gondola Ride", "Daily Breakfast", "City Tours"],
+        "exclusions": ["Flights", "Personal expenses"],
+        "photos": ["https://images.pexels.com/photos/15919505/pexels-photo-15919505/free-photo-of-street-canal-with-buildings-in-venice.jpeg?auto=compress&cs=tinysrgb&w=800"],
+        "availability": [
+          {
+            "startDate": "2024-05-01",
+            "endDate": "2024-10-31"
+          }
+        ]
+      }
+    
+  ]
