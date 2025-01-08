@@ -15,5 +15,3 @@ package-lock.json
 # OS-generated files
 .DS_Store
 Thumbs.db
-
-public/media/*.mp4
