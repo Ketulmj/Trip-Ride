@@ -1,5 +1,3 @@
-# TripRide 
-
 ## Overview
 
 It is a travel guide system which provides user authentication, blog management, wishlist functionality, and integration with RapidAPI for live location-based services such as attractions, hotels, and restaurants. It also supports a variety of routes to serve static files and APIs.
@@ -28,16 +26,12 @@ It is a travel guide system which provides user authentication, blog management,
 - **Admin Functionality:**
   - Admin verification using a secret key for privileged access.
 
----
-
 ## Prerequisites
 
 - **Node.js** (v16 or higher)
 - **MongoDB** (local instance running at `localhost:27017`)
 - **npm** (v7 or higher)
 - **RapidAPI Key**
-
----
 
 ## Installation
 
@@ -71,8 +65,6 @@ It is a travel guide system which provides user authentication, blog management,
 
 6. Open your browser and navigate to: `http://localhost:5500`
 
----
-
 ## Folder Structure
 ```
 ├── public
@@ -100,8 +92,6 @@ It is a travel guide system which provides user authentication, blog management,
 ├── server.js
 └── package.json
 ```
-
----
 
 ## API Endpoints
 
@@ -136,20 +126,14 @@ It is a travel guide system which provides user authentication, blog management,
 - `GET /api/search` - Perform location search.
 - `GET /api/autocomplete` - Get location suggestions based on input query.
 
----
-
 ## Development Notes
 
 - Ensure MongoDB is running locally at `localhost:27017` before starting the server.
 - Customize `packages.json` and `wishlist.json` files located in `public/package/data` for package data and wishlist storage.
 - Use the provided `.env` file for managing sensitive information such as API keys and admin credentials.
 
----
-
 ## License
 This project is licensed under the [MIT License](LICENSE).
-
----
 
 ## Acknowledgments
 
