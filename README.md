@@ -4,8 +4,6 @@
 
 It is a travel guide system which provides user authentication, blog management, wishlist functionality, and integration with RapidAPI for live location-based services such as attractions, hotels, and restaurants. It also supports a variety of routes to serve static files and APIs.
 
----
-
 ## Features
 
 - **User Authentication:**
